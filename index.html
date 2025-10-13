@@ -57,81 +57,49 @@
   </section>
 
   <!-- Flights Section -->
+  <section id="flights" class="bg-white py-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
+      <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
 
- <section id="flights" class="bg-white py-12">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
-    <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
+      <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input type="text" name="name" placeholder="Full Name" required class="p-3 border rounded-lg w-full">
+          <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
+          <input type="text" name="from" placeholder="From (City/Airport)" required class="p-3 border rounded-lg w-full">
+          <input type="text" name="to" placeholder="To (City/Airport)" required class="p-3 border rounded-lg w-full">
+          <input type="date" name="date" required class="p-3 border rounded-lg w-full">
+          <select name="trip_type" class="p-3 border rounded-lg w-full">
+            <option value="One Way">One Way</option>
+            <option value="Round Trip">Round Trip</option>
+          </select>
+        </div>
+        <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full mt-4"></textarea>
+        <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          Submit Booking
+        </button>
+      </form>
+    </div>
+  </section>
 
-    <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
-      <div class="grid md:grid-cols-2 gap-4">
-        <input type="text" name="name" placeholder="Full Name" required class="p-3 border rounded-lg w-full">
-        <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
-        <input type="text" name="from" placeholder="From (City/Airport)" required class="p-3 border rounded-lg w-full">
-        <input type="text" name="to" placeholder="To (City/Airport)" required class="p-3 border rounded-lg w-full">
-        <input type="date" name="date" required class="p-3 border rounded-lg w-full">
-        <select name="trip_type" class="p-3 border rounded-lg w-full">
-          <option value="One Way">One Way</option>
-          <option value="Round Trip">Round Trip</option>
-        </select>
-      </div>
-      </section>
-      
-
-<form id="contactForm" action="https://script.google.com/macros/s/AKfycbxW6uuE7RwKPqotGzqDlvk7y8S5V6yS_-sISMdRdLY0s_RW8Ha_tBi2TNT_laeXpCRA/exec" method="POST"
-      class="max-w-lg mx-auto bg-white shadow-md rounded p-6 space-y-4">
-
-  <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-3 py-2">
-  <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-3 py-2">
-  <textarea name="message" placeholder="Message" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-
-  <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">
-    Send Message
-  </button>
-</form>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = e.target;
-  fetch(form.action, { method: "POST", body: new FormData(form)})
-    .then(() => {
-      alert("✅ Message Sent! Thank you.");
-      form.reset();
-    })
-    .catch(() => alert("❌ Something went wrong! Try again."));
-});
-</script>
-
-      <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full mt-4"></textarea>
-
-      <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-        Submit Booking
-      </button>
-    </form>
-  </div>
-</section>
- 
   <!-- Contact Section -->
-<section id="contact" class="py-20">
-  <div class="container mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-10">Contact Us</h2>
+  <section id="contact" class="py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10">Contact Us</h2>
 
-    <!-- ✅ Formspree Integration -->
-    <form action="https://formspree.io/f/xqaygdwg" method="POST" class="max-w-lg mx-auto bg-white shadow-md rounded p-6 space-y-4">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-3 py-2">
-      <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-3 py-2">
-      <textarea name="message" placeholder="Message" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-      
-      <!-- optional hidden field to prevent spam -->
-      <input type="hidden" name="_captcha" value="false">
-      
-      <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">
-        Send Message
-      </button>
-    </form>
-  </div>
-
+      <!-- Contact Form -->
+      <form action="https://script.google.com/macros/s/AKfycbxW6uuE7RwKPqotGzqDlvk7y8S5V6yS_-sISMdRdLY0s_RW8Ha_tBi2TNT_laeXpCRA/exec" method="POST"
+        class="max-w-lg mx-auto bg-white shadow-md rounded p-6 space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-3 py-2">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-3 py-2">
+        <textarea name="message" placeholder="Message" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-blue-700 text-white py-6 mt-10">
@@ -142,6 +110,3 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
-
-
-
