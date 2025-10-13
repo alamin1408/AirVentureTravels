@@ -57,7 +57,7 @@
   </section>
 
   <!-- Flights Section -->
-</section>
+
  <section id="flights" class="bg-white py-12">
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
@@ -75,6 +75,33 @@
           <option value="Round Trip">Round Trip</option>
         </select>
       </div>
+      </section>
+      
+
+<form id="contactForm" action="https://script.google.com/macros/s/AKfycbxW6uuE7RwKPqotGzqDlvk7y8S5V6yS_-sISMdRdLY0s_RW8Ha_tBi2TNT_laeXpCRA/exec" method="POST"
+      class="max-w-lg mx-auto bg-white shadow-md rounded p-6 space-y-4">
+
+  <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-3 py-2">
+  <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-3 py-2">
+  <textarea name="message" placeholder="Message" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+
+  <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">
+    Send Message
+  </button>
+</form>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  fetch(form.action, { method: "POST", body: new FormData(form)})
+    .then(() => {
+      alert("✅ Message Sent! Thank you.");
+      form.reset();
+    })
+    .catch(() => alert("❌ Something went wrong! Try again."));
+});
+</script>
 
       <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full mt-4"></textarea>
 
@@ -115,5 +142,6 @@
 
 </body>
 </html>
+
 
 
