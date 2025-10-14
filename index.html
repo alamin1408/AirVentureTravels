@@ -87,64 +87,119 @@
     <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
 
     <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
-      
-      <!-- ১ম লাইন -->
       <div class="grid md:grid-cols-2 gap-4">
+
+        <!-- First + Last Name -->
         <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full">
         <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full">
-      </div>
 
-      <!-- ২য় লাইন -->
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
-        <div class="flex border rounded-lg overflow-hidden">
-          <select id="countryCode" name="country_code" class="p-3 bg-gray-100 border-r outline-none">
-            <option value="+880" selected>🇧🇩 +880</option>
-            <option value="+91">🇮🇳 +91</option>
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+971">🇦🇪 +971</option>
-          </select>
+        <!-- Mobile + Email -->
+        <div class="flex items-center border rounded-lg overflow-hidden">
+          <div class="relative w-36">
+            <input list="countryCodes" name="country_code" placeholder="+880" class="p-3 w-full border-r outline-none bg-gray-100">
+            <datalist id="countryCodes">
+              <option value="+880 🇧🇩 Bangladesh">
+              <option value="+91 🇮🇳 India">
+              <option value="+1 🇺🇸 USA">
+              <option value="+44 🇬🇧 UK">
+              <option value="+81 🇯🇵 Japan">
+              <option value="+971 🇦🇪 UAE">
+              <option value="+61 🇦🇺 Australia">
+              <option value="+60 🇲🇾 Malaysia">
+              <option value="+65 🇸🇬 Singapore">
+              <option value="+66 🇹🇭 Thailand">
+              <option value="+62 🇮🇩 Indonesia">
+              <option value="+94 🇱🇰 Sri Lanka">
+              <option value="+86 🇨🇳 China">
+              <option value="+82 🇰🇷 South Korea">
+              <option value="+49 🇩🇪 Germany">
+              <option value="+33 🇫🇷 France">
+              <option value="+39 🇮🇹 Italy">
+              <option value="+7 🇷🇺 Russia">
+              <option value="+34 🇪🇸 Spain">
+              <option value="+55 🇧🇷 Brazil">
+              <option value="+27 🇿🇦 South Africa">
+            </datalist>
+          </div>
           <input type="tel" name="mobile" placeholder="Mobile Number" required class="p-3 w-full outline-none">
         </div>
+
         <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
-      </div>
 
-      <!-- ৩য় লাইন -->
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <!-- Departure + Arrival -->
         <div class="relative">
-          <input id="departure" type="text" name="from" placeholder="Departure City or Airport" required class="p-3 border rounded-lg w-full">
-          <ul id="departureList" class="absolute bg-white border rounded-lg mt-1 w-full text-left z-50 hidden"></ul>
+          <input id="departure" name="departure_city" placeholder="Departure City / Airport" required class="p-3 border rounded-lg w-full">
+          <ul id="departureList" class="absolute bg-white border rounded-lg w-full mt-1 z-10 hidden max-h-40 overflow-y-auto"></ul>
         </div>
-        <div class="relative">
-          <input id="arrival" type="text" name="to" placeholder="Arrival City or Airport" required class="p-3 border rounded-lg w-full">
-          <ul id="arrivalList" class="absolute bg-white border rounded-lg mt-1 w-full text-left z-50 hidden"></ul>
-        </div>
-      </div>
 
-      <!-- ৪র্থ লাইন -->
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="relative">
+          <input id="arrival" name="arrival_city" placeholder="Arrival City / Airport" required class="p-3 border rounded-lg w-full">
+          <ul id="arrivalList" class="absolute bg-white border rounded-lg w-full mt-1 z-10 hidden max-h-40 overflow-y-auto"></ul>
+        </div>
+
+        <!-- Date + Trip Type -->
         <input type="date" name="date" required class="p-3 border rounded-lg w-full">
-        <select name="trip_type" required class="p-3 border rounded-lg w-full">
+        <select name="trip_type" class="p-3 border rounded-lg w-full">
           <option value="One Way">One Way</option>
           <option value="Round Trip">Round Trip</option>
         </select>
-      </div>
 
-      <!-- ৫ম লাইন -->
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
-        <select name="class" required class="p-3 border rounded-lg w-full">
-          <option value="" disabled selected>Select Class</option>
+        <!-- Class + Notes -->
+        <select name="class" class="p-3 border rounded-lg w-full">
           <option value="Economy">Economy</option>
           <option value="Premium Economy">Premium Economy</option>
           <option value="Business">Business</option>
         </select>
-        <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
+
+        <textarea name="message" rows="1" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
+
       </div>
 
-      <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">Submit Booking</button>
+      <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+        Submit Booking
+      </button>
     </form>
   </div>
 </section>
+
+<script>
+const API_KEY = "4eb24800439e20b8f6b99d5f3b1be174";
+
+async function fetchAirports(query, targetListId) {
+  if (query.length < 2) return;
+  const url = https://api.aviationstack.com/v1/airports?access_key=${API_KEY}&search=${query};
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    const list = document.getElementById(targetListId);
+    list.innerHTML = "";
+
+    if (data.data && data.data.length > 0) {
+      data.data.slice(0, 8).forEach(a => {
+        const li = document.createElement("li");
+        li.textContent = ${a.airport_name} (${a.iata_code}) - ${a.country_name};
+        li.className = "p-2 hover:bg-blue-100 cursor-pointer";
+        li.onclick = () => {
+          document.getElementById(targetListId.replace("List", "")).value = li.textContent;
+          list.classList.add("hidden");
+        };
+        list.appendChild(li);
+      });
+      list.classList.remove("hidden");
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+document.getElementById("departure").addEventListener("input", e => fetchAirports(e.target.value, "departureList"));
+document.getElementById("arrival").addEventListener("input", e => fetchAirports(e.target.value, "arrivalList"));
+
+document.addEventListener("click", e => {
+  if (!e.target.closest("#departureList")) document.getElementById("departureList").classList.add("hidden");
+  if (!e.target.closest("#arrivalList")) document.getElementById("arrivalList").classList.add("hidden");
+});
+</script>
 
 <!-- ✈️ Auto Suggest Script -->
 <script>
@@ -213,6 +268,7 @@
 
 </body>
 </html>
+
 
 
 
