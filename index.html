@@ -81,29 +81,109 @@
   </section>
 
   <!-- Flights Section -->
-  <section id="flights" class="bg-white py-12">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
-      <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
+ <section id="flights" class="bg-white py-12">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
+    <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
 
-      <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
-        <div class="grid md:grid-cols-2 gap-4">
-          <input type="text" name="name" placeholder="Full Name" required class="p-3 border rounded-lg w-full">
-          <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
-          <input type="text" name="from" placeholder="From (City/Airport)" required class="p-3 border rounded-lg w-full">
-          <input type="text" name="to" placeholder="To (City/Airport)" required class="p-3 border rounded-lg w-full">
-          <input type="date" name="date" required class="p-3 border rounded-lg w-full">
-          <select name="trip_type" class="p-3 border rounded-lg w-full">
-            <option value="One Way">One Way</option>
-            <option value="Round Trip">Round Trip</option>
-						</select>
+    <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
+      
+      <!-- ১ম লাইন -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full">
+        <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full">
+      </div>
+
+      <!-- ২য় লাইন -->
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="flex border rounded-lg overflow-hidden">
+          <select id="countryCode" name="country_code" class="p-3 bg-gray-100 border-r outline-none">
+            <option value="+880" selected>🇧🇩 +880</option>
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+971">🇦🇪 +971</option>
+          </select>
+          <input type="tel" name="mobile" placeholder="Mobile Number" required class="p-3 w-full outline-none">
         </div>
-            <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full mt-4"></textarea>
-  <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">Submit Booking</button>
-          
-      </form>
-    </div>
-  </section>
+        <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
+      </div>
+
+      <!-- ৩য় লাইন -->
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="relative">
+          <input id="departure" type="text" name="from" placeholder="Departure City or Airport" required class="p-3 border rounded-lg w-full">
+          <ul id="departureList" class="absolute bg-white border rounded-lg mt-1 w-full text-left z-50 hidden"></ul>
+        </div>
+        <div class="relative">
+          <input id="arrival" type="text" name="to" placeholder="Arrival City or Airport" required class="p-3 border rounded-lg w-full">
+          <ul id="arrivalList" class="absolute bg-white border rounded-lg mt-1 w-full text-left z-50 hidden"></ul>
+        </div>
+      </div>
+
+      <!-- ৪র্থ লাইন -->
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <input type="date" name="date" required class="p-3 border rounded-lg w-full">
+        <select name="trip_type" required class="p-3 border rounded-lg w-full">
+          <option value="One Way">One Way</option>
+          <option value="Round Trip">Round Trip</option>
+        </select>
+      </div>
+
+      <!-- ৫ম লাইন -->
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <select name="class" required class="p-3 border rounded-lg w-full">
+          <option value="" disabled selected>Select Class</option>
+          <option value="Economy">Economy</option>
+          <option value="Premium Economy">Premium Economy</option>
+          <option value="Business">Business</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
+      </div>
+
+      <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">Submit Booking</button>
+    </form>
+  </div>
+</section>
+
+<!-- ✈️ Auto Suggest Script -->
+<script>
+  const apiKey = "c50adb6de4545d9e5bd66a363aeebebb"; // ← এখানে Aviationstack API Key বসাও
+
+  async function searchAirports(query, listId) {
+    if (query.length < 2) return;
+    const response = await fetch(https://api.aviationstack.com/v1/airports?access_key=${apiKey}&search=${query});
+    const data = await response.json();
+
+    const list = document.getElementById(listId);
+    list.innerHTML = "";
+
+    if (data.data && data.data.length > 0) {
+      data.data.slice(0, 5).forEach(airport => {
+        const li = document.createElement("li");
+        li.textContent = ${airport.airport_name} (${airport.iata_code}) – ${airport.country_name};
+        li.classList.add("p-2", "hover:bg-gray-100", "cursor-pointer");
+        li.onclick = () => {
+          document.getElementById(listId.replace("List", "")).value = ${airport.airport_name} (${airport.iata_code});
+          list.classList.add("hidden");
+        };
+        list.appendChild(li);
+      });
+      list.classList.remove("hidden");
+    } else {
+      list.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("departure").addEventListener("input", e => searchAirports(e.target.value, "departureList"));
+  document.getElementById("arrival").addEventListener("input", e => searchAirports(e.target.value, "arrivalList"));
+
+  document.addEventListener("click", e => {
+    if (!e.target.closest("ul")) {
+      document.querySelectorAll("ul[id$='List']").forEach(list => list.classList.add("hidden"));
+    }
+  });
+</script>
 
   
 
@@ -133,6 +213,7 @@
 
 </body>
 </html>
+
 
 
 
