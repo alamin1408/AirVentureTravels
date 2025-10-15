@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flight Booking Form</title>
+  <title>AirVenture Travels | Book Flight</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-all duration-300">
 
-  <section id="flights" class="bg-white py-12">
+  <!-- 🌍 Header -->
+  <header class="bg-blue-600 text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">✈️ AirVenture Travels</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="package.html" class="hover:underline">Packages</a>
+        <a href="booking.html" class="hover:underline">Booking</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+      <button id="darkToggle" class="ml-4 bg-white text-blue-600 px-3 py-1 rounded-lg font-semibold dark:bg-gray-800 dark:text-yellow-400">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- ✈️ Booking Form -->
+  <section id="flights" class="py-12">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
-      <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
+      <h2 class="text-3xl font-bold mb-6">Book Your Flight</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">Fill up the form and we’ll get back to you soon.</p>
 
-      <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
+      <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md">
         
         <!-- Row 1 -->
         <div class="grid md:grid-cols-2 gap-4">
-          <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full">
-          <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full">
+          <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
+          <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
         </div>
 
         <!-- Row 2 -->
         <div class="grid md:grid-cols-2 gap-4 mt-4">
-          <div class="flex items-center border rounded-lg p-3">
-            <select id="countryCode" class="bg-transparent outline-none mr-2">
+          <div class="flex items-center border rounded-lg p-3 dark:border-gray-600">
+            <select id="countryCode" class="bg-transparent outline-none mr-2 dark:bg-gray-700">
               <option value="+880">🇧🇩 +880</option>
               <option value="+91">🇮🇳 +91</option>
               <option value="+1">🇺🇸 +1</option>
@@ -37,36 +55,41 @@
               <option value="+39">🇮🇹 +39</option>
               <option value="+60">🇲🇾 +60</option>
             </select>
-            <input type="tel" name="mobile" placeholder="Mobile Number" required class="flex-1 outline-none">
+            <input type="tel" name="mobile" placeholder="Mobile Number" required class="flex-1 outline-none dark:bg-gray-700">
           </div>
-          <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
+          <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
         </div>
 
         <!-- Row 3 -->
         <div class="grid md:grid-cols-2 gap-4 mt-4">
-          <input list="departureAirports" id="departure" name="from" placeholder="Departure City/Airport" required class="p-3 border rounded-lg w-full">
-          <input list="arrivalAirports" id="arrival" name="to" placeholder="Arrival City/Airport" required class="p-3 border rounded-lg w-full">
+          <input list="departureAirports" id="departure" name="from" placeholder="Departure City/Airport" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
+          <input list="arrivalAirports" id="arrival" name="to" placeholder="Arrival City/Airport" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
           <datalist id="departureAirports"></datalist>
           <datalist id="arrivalAirports"></datalist>
         </div>
 
         <!-- Row 4 -->
         <div class="grid md:grid-cols-2 gap-4 mt-4">
-          <input type="date" name="date" required class="p-3 border rounded-lg w-full">
-          <select name="trip_type" class="p-3 border rounded-lg w-full">
+          <input type="date" name="date" required class="p-3 border rounded-lg w-full dark:bg-gray-700">
+          <select name="trip_type" id="tripType" class="p-3 border rounded-lg w-full dark:bg-gray-700">
             <option value="One Way">One Way</option>
             <option value="Round Trip">Round Trip</option>
           </select>
         </div>
 
+        <!-- Return Date (Hidden by default) -->
+        <div id="returnDateContainer" class="mt-4 hidden">
+          <input type="date" name="return_date" class="p-3 border rounded-lg w-full dark:bg-gray-700" placeholder="Return Date">
+        </div>
+
         <!-- Row 5 -->
         <div class="grid md:grid-cols-2 gap-4 mt-4">
-          <select name="class" class="p-3 border rounded-lg w-full">
+          <select name="class" class="p-3 border rounded-lg w-full dark:bg-gray-700">
             <option value="Economy">Economy</option>
             <option value="Premium Economy">Premium Economy</option>
             <option value="Business">Business</option>
           </select>
-          <textarea name="message" rows="1" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
+          <textarea name="message" rows="1" placeholder="Additional Notes" class="p-3 border rounded-lg w-full dark:bg-gray-700"></textarea>
         </div>
 
         <!-- Button -->
@@ -77,8 +100,26 @@
     </div>
   </section>
 
+  <!-- 🌍 Footer -->
+  <footer class="bg-blue-600 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 AirVenture Travels | Feel the Air, Live with Adventure 🌏</p>
+  </footer>
+
   <script>
-  // ✈️ Airport Autocomplete (using AirLabs API)
+  // 🌙 Dark Mode Toggle
+  const toggle = document.getElementById("darkToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+
+  // ✈️ Round Trip Return Date Toggle
+  const tripType = document.getElementById("tripType");
+  const returnDateContainer = document.getElementById("returnDateContainer");
+  tripType.addEventListener("change", () => {
+    returnDateContainer.classList.toggle("hidden", tripType.value !== "Round Trip");
+  });
+
+  // ✈️ Airport Autocomplete
   const apiKey = "b764df5d-f3af-4193-bc67-74b8ecc94b7f";
   async function loadAirports(inputId, datalistId) {
     const input = document.getElementById(inputId);
@@ -90,7 +131,7 @@
         const res = await fetch(`https://airlabs.co/api/v9/suggest?q=${query}&api_key=${apiKey}`);
         const data = await res.json();
         datalist.innerHTML = "";
-        if (data.response && data.response.airports) {
+        if (data?.response?.airports?.length) {
           data.response.airports.forEach(airport => {
             const option = document.createElement("option");
             option.value = `${airport.name} (${airport.iata_code})`;
