@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — AirVenture Travels</title>
+
+  <!-- Tailwind CDN -->
+  <script>window.tailwind = window.tailwind || {}; window.tailwind.config = { darkMode: 'class' };</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom styles (dark mode tweaks, container, small helpers) -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Header / Nav -->
+  <header class="bg-blue-700 text-white">
+    <div class="container flex justify-between items-center py-4">
+      <div class="flex items-center space-x-3">
+        <img src="assets/icons/plane.svg" alt="logo" class="w-8 h-8">
+        <div>
+          <h1 class="text-xl font-bold">AirVenture Travels</h1>
+          <div class="text-sm">Feel the Air, Live with Adventure</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="about.html" class="hover:underline underline decoration-white/30">About</a></li>
+          <li><a href="packages.html" class="hover:underline">Packages</a></li>
+          <li><a href="booking.html" class="hover:underline">Booking</a></li>
+          <li><a href="contact.html" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <button id="themeToggle" class="p-2 rounded bg-white text-blue-700" title="Toggle dark mode">
+          <img src="assets/icons/moon.svg" alt="theme" class="w-5 h-5">
+        </button>
+        <button id="mobileMenuBtn" class="md:hidden p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div id="mobileMenu" class="hidden bg-blue-700 text-white">
+    <div class="container py-4">
+      <a href="index.html" class="block py-2 border-b">Home</a>
+      <a href="about.html" class="block py-2 border-b">About</a>
+      <a href="packages.html" class="block py-2 border-b">Packages</a>
+      <a href="booking.html" class="block py-2 border-b">Booking</a>
+      <a href="contact.html" class="block py-2">Contact</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Hero / Page Title -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-20">
+      <div class="container text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">About AirVenture Travels</h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto">Trusted travel partner — আমরা ভ্রমণকে সহজ, নিরাপদ ও স্মরণীয় করে তুলি।</p>
+      </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-16">
+      <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">আমাদের গল্প</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            AirVenture Travels শুরু হয় ভ্রমণ ও গ্রাহক সেবার ভালোবাসা থেকে — আমরা বিশ্বাস করি প্রতিটি যাত্রা একটি গল্প, আর সেই গল্পকে সহজ, আরামদায়ক ও সুরক্ষিত করে তোলা আমাদের কাজ।
+          </p>
+          <p class="text-gray-700 dark:text-gray-300">
+            আমরা স্থানীয় ও আন্তর্জাতিক প্যাকেজ, ফ্লাইট বুকিং, ভিসা গাইডেন্স এবং কাস্টম ট্রাভেল প্ল্যানিং সার্ভিস দিয়ে থাকি। আমাদের টিম দক্ষ পরামর্শদাতা ও অভিজ্ঞ সার্ভিস স্টাফ নিয়ে গঠিত।
+          </p>
+        </div>
+
+        <div>
+          <img src="assets/images/hero-bg.jpg" alt="About image" class="rounded-lg shadow-lg img-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission, Vision, Values -->
+    <section class="py-12 bg-gray-50 dark:bg-gray-800">
+      <div class="container text-center">
+        <h3 class="text-2xl font-bold mb-6">Mission, Vision & Values</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-6 text-left">
+            <h4 class="font-semibold mb-2">Mission</h4>
+            <p class="text-gray-700 dark:text-gray-300">সাশ্রয়ী ও ঝামেলা-মুক্ত ভ্রমণ সেবা প্রদান করা — গ্রাহকের প্রত্যাশা ছুঁয়ে যাওয়া।</p>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-6 text-left">
+            <h4 class="font-semibold mb-2">Vision</h4>
+            <p class="text-gray-700 dark:text-gray-300">বিস্বস্ত ও প্রযুক্তিনির্ভর ট্রাভেল সার্ভিসে বাংলাদেশের নাম উজ্জ্বল করা।</p>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-6 text-left">
+            <h4 class="font-semibold mb-2">Values</h4>
+            <ul class="list-disc ml-5 text-gray-700 dark:text-gray-300">
+              <li>Integrity</li>
+              <li>Customer-first</li>
+              <li>Safety & Comfort</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-16">
+      <div class="container">
+        <h3 class="text-2xl font-bold mb-6">Our Team</h3>
+        <p class="text-gray-700 dark:text-gray-300 mb-6">একটি ছোট কিন্তু দক্ষ টিম — আমরা কাজ করি মন থেকে, যাতে আপনার যাত্রা হয় আরামদায়ক।</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- member -->
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 text-center">
+            <div class="h-32 w-32 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-3 flex items-center justify-center">A</div>
+            <h4 class="font-semibold">Al Amin</h4>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Founder & CEO</div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 text-center">
+            <div class="h-32 w-32 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-3 flex items-center justify-center">I</div>
+            <h4 class="font-semibold">Israt</h4>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Head of Operations</div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 text-center">
+            <div class="h-32 w-32 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-3 flex items-center justify-center">M</div>
+            <h4 class="font-semibold">Mahin</h4>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Travel Consultant</div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 text-center">
+            <div class="h-32 w-32 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-3 flex items-center justify-center">R</div>
+            <h4 class="font-semibold">Rana</h4>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline / Milestones -->
+    <section class="py-12 bg-gray-50 dark:bg-gray-800">
+      <div class="container">
+        <h3 class="text-2xl font-bold mb-6">Milestones</h3>
+        <div class="space-y-4">
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <strong>2022</strong> — Company founded
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Dhaka, Bangladesh</div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <strong>2023</strong> — First 100 customers served
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Expansion of package list</div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <strong>2024</strong> — Technology integration & online booking
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Google Sheets + Booking forms</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12">
+      <div class="container text-center">
+        <h4 class="text-xl font-bold mb-3">Ready to plan your next trip?</h4>
+        <a href="booking.html" class="btn-primary text-white px-6 py-3 rounded-full">Start Booking</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-700 text-white mt-12">
+    <div class="container py-6 flex flex-col md:flex-row justify-between items-center">
+      <div>&copy; 2025 AirVenture Travels</div>
+      <div class="flex space-x-4 mt-3 md:mt-0">
+        <a href="#" class="hover:underline">Facebook</a>
+        <a href="#" class="hover:underline">Instagram</a>
+        <a href="#" class="hover:underline">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Common scripts: theme toggle + mobile menu -->
+  <script>
+    // Theme & mobile menu logic (same as other pages)
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    function setTheme(dark) {
+      if (dark) { htmlEl.classList.add('dark'); localStorage.setItem('theme','dark'); }
+      else { htmlEl.classList.remove('dark'); localStorage.setItem('theme','light'); }
+    }
+    if (localStorage.getItem('theme') === 'dark') setTheme(true);
+
+    themeToggle && themeToggle.addEventListener('click', () => {
+      setTheme(!htmlEl.classList.contains('dark'));
+    });
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn && mobileBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) mobileMenu.classList.remove('hidden');
+      else mobileMenu.classList.add('hidden');
+    });
+  </script>
+
+</body>
+</html>
