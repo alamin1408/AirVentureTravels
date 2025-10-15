@@ -1,285 +1,107 @@
 <!DOCTYPE html>
-<html lang="bn">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirVenture Travels</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirVenture Travels | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-all duration-300">
 
-<body class="bg-gray-100 font-sans">
-  <!-- Header -->
-  <header class="bg-blue-700 text-white shadow-md">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold">AirVenture Travels</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="hover:text-gray-300">Home</a></li>
-          <li><a href="#packages" class="hover:text-gray-300">Packages</a></li>
-          <li><a href="#flights" class="hover:text-gray-300">Flights</a></li>
-          <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-        </ul>
+  <!-- 🌍 Header -->
+  <header class="bg-blue-600 text-white shadow-md fixed w-full z-30">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">✈️ AirVenture Travels</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="package.html" class="hover:underline">Packages</a>
+        <a href="booking.html" class="hover:underline">Booking</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
       </nav>
+      <button id="darkToggle" class="ml-4 bg-white text-blue-600 px-3 py-1 rounded-lg font-semibold dark:bg-gray-800 dark:text-yellow-400">
+        🌙
+      </button>
     </div>
   </header>
 
-	<!-- Hero Section -->
-<section id="home" class="bg-blue-100 py-24 relative overflow-hidden">
-  <div class="container mx-auto text-center">
-    <h2 class="text-5xl font-extrabold text-blue-800 mb-4 animate-fadeIn">
-      Welcome to AirVenture Travels
-    </h2>
-    <p class="text-xl text-gray-700 mb-6 animate-slideUp">
-      Feel the Air, Live with Adventure
-    </p>
+  <!-- Hero Section -->
+  <section class="pt-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 px-4 py-16">
+      <div class="flex-1 text-center md:text-left">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Feel the Air, Live with Adventure</h2>
+        <p class="mb-6 text-lg md:text-xl">Book your flights, explore amazing destinations, and travel the world with AirVenture Travels.</p>
+        <a href="booking.html" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Book a Flight</a>
+      </div>
+      <div class="flex-1">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Airplane flying" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+  </section>
 
-<nav>
-  <ul class="flex space-x-6">
-    <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
-    <li><a href="about.html" class="hover:text-gray-300">About</a></li>
-    <li><a href="packages.html" class="hover:text-gray-300">Packages</a></li>
-				<li><a href="booking.html" class="hover:text-gray-300">Booking</a></li>
-    <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
-  </ul>
-</nav>
-    <a href="#packages" class="bg-blue-700 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition shadow-lg">
-      Explore Packages
-    </a>
-  </div>
-</section>
-
-<!-- Simple animation styles -->
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fadeIn {
-    animation: fadeIn 1.2s ease-out;
-  }
-  .animate-slideUp {
-    animation: slideUp 1.8s ease-out;
-  }
-</style>
-  <!-- Packages Section -->
-  <section id="packages" class="py-20">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Travel Packages</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white shadow-md rounded p-6">
-          <h3 class="text-xl font-semibold mb-2">Dubai Adventure</h3>
-          <p class="text-gray-700 mb-4">5 Nights / 6 Days, Flights + Hotel included</p>
-          <span class="font-bold text-blue-700">৳65,000</span>
+  <!-- Popular Destinations -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-8">Popular Destinations</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80" alt="Paris" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-xl">Paris, France</h4>
+            <p class="text-gray-600 dark:text-gray-400">The city of love, art, and iconic landmarks.</p>
+          </div>
         </div>
-        <div class="bg-white shadow-md rounded p-6">
-          <h3 class="text-xl font-semibold mb-2">Thailand Getaway</h3>
-          <p class="text-gray-700 mb-4">4 Nights / 5 Days, Flights + Hotel included</p>
-          <span class="font-bold text-blue-700">৳55,000</span>
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1518684079-5465c1eeaa07?auto=format&fit=crop&w=800&q=80" alt="Tokyo" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-xl">Tokyo, Japan</h4>
+            <p class="text-gray-600 dark:text-gray-400">Experience futuristic cities and traditional culture.</p>
+          </div>
         </div>
-        <div class="bg-white shadow-md rounded p-6">
-          <h3 class="text-xl font-semibold mb-2">Europe Explorer</h3>
-          <p class="text-gray-700 mb-4">7 Nights / 8 Days, Flights + Hotel included</p>
-          <span class="font-bold text-blue-700">৳150,000</span>
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="New York" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-xl">New York, USA</h4>
+            <p class="text-gray-600 dark:text-gray-400">The city that never sleeps, full of energy and landmarks.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Flights Section -->
- <section id="flights" class="bg-white py-12">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
-    <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
-
-    <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
-      <div class="grid md:grid-cols-2 gap-4">
-
-        <!-- First + Last Name -->
-        <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full">
-        <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full">
-
-        <!-- Mobile + Email -->
-        <div class="flex items-center border rounded-lg overflow-hidden">
-          <div class="relative w-36">
-            <input list="countryCodes" name="country_code" placeholder="+880" class="p-3 w-full border-r outline-none bg-gray-100">
-            <datalist id="countryCodes">
-              <option value="+880 🇧🇩 Bangladesh">
-              <option value="+91 🇮🇳 India">
-              <option value="+1 🇺🇸 USA">
-              <option value="+44 🇬🇧 UK">
-              <option value="+81 🇯🇵 Japan">
-              <option value="+971 🇦🇪 UAE">
-              <option value="+61 🇦🇺 Australia">
-              <option value="+60 🇲🇾 Malaysia">
-              <option value="+65 🇸🇬 Singapore">
-              <option value="+66 🇹🇭 Thailand">
-              <option value="+62 🇮🇩 Indonesia">
-              <option value="+94 🇱🇰 Sri Lanka">
-              <option value="+86 🇨🇳 China">
-              <option value="+82 🇰🇷 South Korea">
-              <option value="+49 🇩🇪 Germany">
-              <option value="+33 🇫🇷 France">
-              <option value="+39 🇮🇹 Italy">
-              <option value="+7 🇷🇺 Russia">
-              <option value="+34 🇪🇸 Spain">
-              <option value="+55 🇧🇷 Brazil">
-              <option value="+27 🇿🇦 South Africa">
-            </datalist>
-          </div>
-          <input type="tel" name="mobile" placeholder="Mobile Number" required class="p-3 w-full outline-none">
+  <!-- About / Services -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-8">Why Choose AirVenture?</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="font-semibold text-xl mb-2">Easy Booking</h4>
+          <p class="text-gray-600 dark:text-gray-300">Book your flights in minutes with our simple and secure system.</p>
         </div>
-
-        <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
-
-        <!-- Departure + Arrival -->
-        <div class="relative">
-          <input id="departure" name="departure_city" placeholder="Departure City / Airport" required class="p-3 border rounded-lg w-full">
-          <ul id="departureList" class="absolute bg-white border rounded-lg w-full mt-1 z-10 hidden max-h-40 overflow-y-auto"></ul>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="font-semibold text-xl mb-2">Best Prices</h4>
+          <p class="text-gray-600 dark:text-gray-300">We provide competitive prices for all major destinations worldwide.</p>
         </div>
-
-        <div class="relative">
-          <input id="arrival" name="arrival_city" placeholder="Arrival City / Airport" required class="p-3 border rounded-lg w-full">
-          <ul id="arrivalList" class="absolute bg-white border rounded-lg w-full mt-1 z-10 hidden max-h-40 overflow-y-auto"></ul>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="font-semibold text-xl mb-2">24/7 Support</h4>
+          <p class="text-gray-600 dark:text-gray-300">Our travel experts are always ready to help you anytime, anywhere.</p>
         </div>
-
-        <!-- Date + Trip Type -->
-        <input type="date" name="date" required class="p-3 border rounded-lg w-full">
-        <select name="trip_type" class="p-3 border rounded-lg w-full">
-          <option value="One Way">One Way</option>
-          <option value="Round Trip">Round Trip</option>
-        </select>
-
-        <!-- Class + Notes -->
-        <select name="class" class="p-3 border rounded-lg w-full">
-          <option value="Economy">Economy</option>
-          <option value="Premium Economy">Premium Economy</option>
-          <option value="Business">Business</option>
-        </select>
-
-        <textarea name="message" rows="1" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
-
       </div>
-
-      <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-        Submit Booking
-      </button>
-    </form>
-  </div>
-</section>
-
-<script>
-const API_KEY = "4eb24800439e20b8f6b99d5f3b1be174";
-
-async function fetchAirports(query, targetListId) {
-  if (query.length < 2) return;
-  const url = https://api.aviationstack.com/v1/airports?access_key=${API_KEY}&search=${query};
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    const list = document.getElementById(targetListId);
-    list.innerHTML = "";
-
-    if (data.data && data.data.length > 0) {
-      data.data.slice(0, 8).forEach(a => {
-        const li = document.createElement("li");
-        li.textContent = ${a.airport_name} (${a.iata_code}) - ${a.country_name};
-        li.className = "p-2 hover:bg-blue-100 cursor-pointer";
-        li.onclick = () => {
-          document.getElementById(targetListId.replace("List", "")).value = li.textContent;
-          list.classList.add("hidden");
-        };
-        list.appendChild(li);
-      });
-      list.classList.remove("hidden");
-    }
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-document.getElementById("departure").addEventListener("input", e => fetchAirports(e.target.value, "departureList"));
-document.getElementById("arrival").addEventListener("input", e => fetchAirports(e.target.value, "arrivalList"));
-
-document.addEventListener("click", e => {
-  if (!e.target.closest("#departureList")) document.getElementById("departureList").classList.add("hidden");
-  if (!e.target.closest("#arrivalList")) document.getElementById("arrivalList").classList.add("hidden");
-});
-</script>
-
-<!-- ✈️ Auto Suggest Script -->
-<script>
-  const apiKey = "c50adb6de4545d9e5bd66a363aeebebb"; // ← এখানে Aviationstack API Key বসাও
-
-  async function searchAirports(query, listId) {
-    if (query.length < 2) return;
-    const response = await fetch(https://api.aviationstack.com/v1/airports?access_key=${apiKey}&search=${query});
-    const data = await response.json();
-
-    const list = document.getElementById(listId);
-    list.innerHTML = "";
-
-    if (data.data && data.data.length > 0) {
-      data.data.slice(0, 5).forEach(airport => {
-        const li = document.createElement("li");
-        li.textContent = ${airport.airport_name} (${airport.iata_code}) – ${airport.country_name};
-        li.classList.add("p-2", "hover:bg-gray-100", "cursor-pointer");
-        li.onclick = () => {
-          document.getElementById(listId.replace("List", "")).value = ${airport.airport_name} (${airport.iata_code});
-          list.classList.add("hidden");
-        };
-        list.appendChild(li);
-      });
-      list.classList.remove("hidden");
-    } else {
-      list.classList.add("hidden");
-    }
-  }
-
-  document.getElementById("departure").addEventListener("input", e => searchAirports(e.target.value, "departureList"));
-  document.getElementById("arrival").addEventListener("input", e => searchAirports(e.target.value, "arrivalList"));
-
-  document.addEventListener("click", e => {
-    if (!e.target.closest("ul")) {
-      document.querySelectorAll("ul[id$='List']").forEach(list => list.classList.add("hidden"));
-    }
-  });
-</script>
-
-  
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Contact Us</h2>
-
-      <!-- ✅ Formspree Integration -->
-      <form action="https://formspree.io/f/xqaygdwg" method="POST" class="max-w-lg mx-auto bg-white shadow-md rounded p-6 space-y-4">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-3 py-2">
-        <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-3 py-2">
-        <textarea name="message" placeholder="Message" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-        <!-- optional hidden field to prevent spam -->
-        <input type="hidden" name="_captcha" value="false">
-        <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">Send Message</button>
-      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-700 text-white py-6 mt-10">
-    <div class="container mx-auto text-center">
-      &copy; 2025 AirVenture Travels. All rights reserved.
-    </div>
+  <footer class="bg-blue-600 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 AirVenture Travels | Feel the Air, Live with Adventure 🌏</p>
   </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
 
 </body>
 </html>
-
-
-
-
-
