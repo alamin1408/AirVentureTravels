@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirVenture Travels | Packages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-all duration-300">
+
+  <!-- 🌍 Header -->
+  <header class="bg-blue-600 text-white shadow-md fixed w-full z-30">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">✈️ AirVenture Travels</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="package.html" class="hover:underline">Packages</a>
+        <a href="booking.html" class="hover:underline">Booking</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+      <button id="darkToggle" class="ml-4 bg-white text-blue-600 px-3 py-1 rounded-lg font-semibold dark:bg-gray-800 dark:text-yellow-400">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Explore Our Travel Packages</h2>
+      <p class="text-lg md:text-xl">Carefully curated travel packages to make your journey unforgettable.</p>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Package Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="New York" class="rounded-xl mb-4 h-48 object-cover">
+          <h3 class="font-semibold text-xl mb-2">New York Adventure</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">5 Days / 4 Nights trip to the city that never sleeps.</p>
+          <p class="font-bold text-blue-600 mb-4">$1200 per person</p>
+          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80" alt="Paris" class="rounded-xl mb-4 h-48 object-cover">
+          <h3 class="font-semibold text-xl mb-2">Romantic Paris</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">Explore the city of love with a 6-day unforgettable journey.</p>
+          <p class="font-bold text-blue-600 mb-4">$1500 per person</p>
+          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1518684079-5465c1eeaa07?auto=format&fit=crop&w=800&q=80" alt="Tokyo" class="rounded-xl mb-4 h-48 object-cover">
+          <h3 class="font-semibold text-xl mb-2">Tokyo Explorer</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">7 Days / 6 Nights exploring traditional & modern Japan.</p>
+          <p class="font-bold text-blue-600 mb-4">$1800 per person</p>
+          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
+        </div>
+
+        <!-- Add more package cards here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 AirVenture Travels | Feel the Air, Live with Adventure 🌏</p>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
+
+</body>
+</html>
