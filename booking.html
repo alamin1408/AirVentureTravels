@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Booking Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <section id="flights" class="bg-white py-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your Flight</h2>
+      <p class="text-gray-600 mb-8">Fill up the form and we’ll get back to you soon.</p>
+
+      <form action="https://formspree.io/f/xgvnplle" method="POST" class="bg-gray-50 p-8 rounded-2xl shadow-md">
+        
+        <!-- Row 1 -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <input type="text" name="first_name" placeholder="First Name" required class="p-3 border rounded-lg w-full">
+          <input type="text" name="last_name" placeholder="Last Name" required class="p-3 border rounded-lg w-full">
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="flex items-center border rounded-lg p-3">
+            <select id="countryCode" class="bg-transparent outline-none mr-2">
+              <option value="+880">🇧🇩 +880</option>
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+81">🇯🇵 +81</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+61">🇦🇺 +61</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+39">🇮🇹 +39</option>
+              <option value="+60">🇲🇾 +60</option>
+            </select>
+            <input type="tel" name="mobile" placeholder="Mobile Number" required class="flex-1 outline-none">
+          </div>
+          <input type="email" name="email" placeholder="Email Address" required class="p-3 border rounded-lg w-full">
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <input list="departureAirports" id="departure" name="from" placeholder="Departure City/Airport" required class="p-3 border rounded-lg w-full">
+          <input list="arrivalAirports" id="arrival" name="to" placeholder="Arrival City/Airport" required class="p-3 border rounded-lg w-full">
+          <datalist id="departureAirports"></datalist>
+          <datalist id="arrivalAirports"></datalist>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <input type="date" name="date" required class="p-3 border rounded-lg w-full">
+          <select name="trip_type" class="p-3 border rounded-lg w-full">
+            <option value="One Way">One Way</option>
+            <option value="Round Trip">Round Trip</option>
+          </select>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <select name="class" class="p-3 border rounded-lg w-full">
+            <option value="Economy">Economy</option>
+            <option value="Premium Economy">Premium Economy</option>
+            <option value="Business">Business</option>
+          </select>
+          <textarea name="message" rows="1" placeholder="Additional Notes" class="p-3 border rounded-lg w-full"></textarea>
+        </div>
+
+        <!-- Button -->
+        <button type="submit" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          Submit Booking
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  // ✈️ Airport Autocomplete (using AirLabs API)
+  const apiKey = "b764df5d-f3af-4193-bc67-74b8ecc94b7f";
+  async function loadAirports(inputId, datalistId) {
+    const input = document.getElementById(inputId);
+    const datalist = document.getElementById(datalistId);
+    input.addEventListener("input", async () => {
+      const query = input.value.trim();
+      if (query.length < 2) return;
+      try {
+        const res = await fetch(`https://airlabs.co/api/v9/suggest?q=${query}&api_key=${apiKey}`);
+        const data = await res.json();
+        datalist.innerHTML = "";
+        if (data.response && data.response.airports) {
+          data.response.airports.forEach(airport => {
+            const option = document.createElement("option");
+            option.value = `${airport.name} (${airport.iata_code})`;
+            datalist.appendChild(option);
+          });
+        }
+      } catch (err) {
+        console.error("Airport API Error:", err);
+      }
+    });
+  }
+  loadAirports("departure", "departureAirports");
+  loadAirports("arrival", "arrivalAirports");
+  </script>
+
+</body>
+</html>
