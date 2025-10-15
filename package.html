@@ -33,38 +33,88 @@
     </div>
   </section>
 
+  <!-- Filter & Sort Section -->
+  <section class="py-8 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-4">
+      
+      <!-- Filters -->
+      <div class="flex-1">
+        <label class="font-semibold mb-1 block">Destination</label>
+        <select id="filterDestination" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white">
+          <option value="All">All</option>
+          <option value="New York">New York</option>
+          <option value="Paris">Paris</option>
+          <option value="Tokyo">Tokyo</option>
+        </select>
+      </div>
+      <div class="flex-1">
+        <label class="font-semibold mb-1 block">Price</label>
+        <select id="filterPrice" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white">
+          <option value="All">All</option>
+          <option value="0-1300">Up to $1300</option>
+          <option value="1301-1600">$1301 - $1600</option>
+          <option value="1601-2000">$1601 - $2000</option>
+        </select>
+      </div>
+      <div class="flex-1">
+        <label class="font-semibold mb-1 block">Duration</label>
+        <select id="filterDuration" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white">
+          <option value="All">All</option>
+          <option value="5">5 Days</option>
+          <option value="6">6 Days</option>
+          <option value="7">7 Days</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <div class="flex-1">
+        <label class="font-semibold mb-1 block">Sort By</label>
+        <select id="sortBy" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white">
+          <option value="none">None</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="duration-asc">Duration: Short to Long</option>
+          <option value="duration-desc">Duration: Long to Short</option>
+        </select>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Packages Section -->
   <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8" id="packagesContainer">
 
-        <!-- Package Card -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="New York" class="rounded-xl mb-4 h-48 object-cover">
-          <h3 class="font-semibold text-xl mb-2">New York Adventure</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-2">5 Days / 4 Nights trip to the city that never sleeps.</p>
-          <p class="font-bold text-blue-600 mb-4">$1200 per person</p>
-          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
-          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80" alt="Paris" class="rounded-xl mb-4 h-48 object-cover">
-          <h3 class="font-semibold text-xl mb-2">Romantic Paris</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-2">Explore the city of love with a 6-day unforgettable journey.</p>
-          <p class="font-bold text-blue-600 mb-4">$1500 per person</p>
-          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col">
-          <img src="https://images.unsplash.com/photo-1518684079-5465c1eeaa07?auto=format&fit=crop&w=800&q=80" alt="Tokyo" class="rounded-xl mb-4 h-48 object-cover">
-          <h3 class="font-semibold text-xl mb-2">Tokyo Explorer</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-2">7 Days / 6 Nights exploring traditional & modern Japan.</p>
-          <p class="font-bold text-blue-600 mb-4">$1800 per person</p>
-          <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
-        </div>
-
-        <!-- Add more package cards here -->
+      <!-- Package Cards -->
+      <div class="package-card bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col"
+           data-destination="New York" data-price="1200" data-duration="5">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="New York" class="rounded-xl mb-4 h-48 object-cover">
+        <h3 class="font-semibold text-xl mb-2">New York Adventure</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-2">5 Days / 4 Nights trip to the city that never sleeps.</p>
+        <p class="font-bold text-blue-600 mb-4">$1200 per person</p>
+        <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
       </div>
+
+      <div class="package-card bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col"
+           data-destination="Paris" data-price="1500" data-duration="6">
+        <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80" alt="Paris" class="rounded-xl mb-4 h-48 object-cover">
+        <h3 class="font-semibold text-xl mb-2">Romantic Paris</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-2">6 Days / 5 Nights exploring Paris.</p>
+        <p class="font-bold text-blue-600 mb-4">$1500 per person</p>
+        <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
+      </div>
+
+      <div class="package-card bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col"
+           data-destination="Tokyo" data-price="1800" data-duration="7">
+        <img src="https://images.unsplash.com/photo-1518684079-5465c1eeaa07?auto=format&fit=crop&w=800&q=80" alt="Tokyo" class="rounded-xl mb-4 h-48 object-cover">
+        <h3 class="font-semibold text-xl mb-2">Tokyo Explorer</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-2">7 Days / 6 Nights exploring Japan.</p>
+        <p class="font-bold text-blue-600 mb-4">$1800 per person</p>
+        <a href="booking.html" class="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-center font-semibold">Book Now</a>
+      </div>
+
+      <!-- Add more packages with correct data attributes as needed -->
+
     </div>
   </section>
 
@@ -79,6 +129,63 @@
     toggle.addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
     });
+
+    // Package Filtering
+    const destinationFilter = document.getElementById("filterDestination");
+    const priceFilter = document.getElementById("filterPrice");
+    const durationFilter = document.getElementById("filterDuration");
+    const sortBy = document.getElementById("sortBy");
+    const packagesContainer = document.getElementById("packagesContainer");
+    const packages = Array.from(document.querySelectorAll(".package-card"));
+
+    function filterPackages() {
+      const dest = destinationFilter.value;
+      const price = priceFilter.value;
+      const duration = durationFilter.value;
+
+      packages.forEach(pkg => {
+        const pkgDest = pkg.dataset.destination;
+        const pkgPrice = parseInt(pkg.dataset.price);
+        const pkgDuration = parseInt(pkg.dataset.duration);
+
+        let show = true;
+
+        if (dest !== "All" && pkgDest !== dest) show = false;
+
+        if (price !== "All") {
+          const [min, max] = price.split("-").map(Number);
+          if (pkgPrice < min || pkgPrice > max) show = false;
+        }
+
+        if (duration !== "All" && pkgDuration !== parseInt(duration)) show = false;
+
+        pkg.style.display = show ? "flex" : "none";
+      });
+
+      sortPackages(); // sort after filtering
+    }
+
+    function sortPackages() {
+      let visiblePackages = packages.filter(pkg => pkg.style.display !== "none");
+
+      const value = sortBy.value;
+      if (value === "price-asc") {
+        visiblePackages.sort((a,b) => a.dataset.price - b.dataset.price);
+      } else if (value === "price-desc") {
+        visiblePackages.sort((a,b) => b.dataset.price - a.dataset.price);
+      } else if (value === "duration-asc") {
+        visiblePackages.sort((a,b) => a.dataset.duration - b.dataset.duration);
+      } else if (value === "duration-desc") {
+        visiblePackages.sort((a,b) => b.dataset.duration - a.dataset.duration);
+      }
+
+      visiblePackages.forEach(pkg => packagesContainer.appendChild(pkg));
+    }
+
+    destinationFilter.addEventListener("change", filterPackages);
+    priceFilter.addEventListener("change", filterPackages);
+    durationFilter.addEventListener("change", filterPackages);
+    sortBy.addEventListener("change", sortPackages);
   </script>
 
 </body>
